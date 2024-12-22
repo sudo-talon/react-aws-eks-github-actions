@@ -36,20 +36,20 @@ data "aws_subnets" "public" {
   }
 }
 
-# Filter subnets in supported availability zones for us-west-1
+# Filter subnets in supported availability zones for eu-west-2
 data "aws_subnet" "supported" {
   for_each = toset(data.aws_subnets.public.ids)
   id       = each.value
 
   filter {
     name   = "availability-zone"
-    values = ["us-west-1a", "us-west-1b", "us-west-1c"]
+    values = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
   }
 }
 
 # EKS Cluster provision
 resource "aws_eks_cluster" "example" {
-  name     = "EKS_cluster_codewithmuh"
+  name     = "talonkube_cluster"
   role_arn = aws_iam_role.example.arn
 
   vpc_config {
