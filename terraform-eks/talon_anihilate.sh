@@ -4,7 +4,7 @@
 echo "Initializing Terraform from Talonkube kanel..."
 terraform init
 
-echo "Anihilating all infrastructures..."
+echo "Anihilating all infrastructures...To be raised on the last day!!"
 terraform destroy -auto-approve
 
 echo "Clean up completed!! Thank you for successfully anihilating all infrastructures!"
